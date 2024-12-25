@@ -19,7 +19,7 @@ async def start(client, message):
         ],
         [
             InlineKeyboardButton("👥 Support Group", url="https://telegram.me/TechifySUPPORT"),
-            InlineKeyboardButton("👩‍💻 Developer", url="https://telegram.me/RahulReviewsYT"),
+            InlineKeyboardButton("👩‍💻 Developer", url="https://telegram.me/TechifyRahul"),
         ] 
    ]
   )
