@@ -37,18 +37,6 @@ HELP_TXT = """
 <b>𝖨𝖿 𝗒𝗈𝗎 𝗌𝗍𝗂𝗅𝗅 𝖿𝖺𝖼𝖾 𝖺𝗇𝗒 𝗂𝗌𝗌𝗎𝖾 𝗍𝗁𝖾𝗇 𝖼𝗈𝗇𝗍𝖺𝖼𝗍 @TechifySupport</b>
 """
 
-DONATE_TXT = """
-<blockquote>❤️‍🔥 𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐬𝐡𝐨𝐰𝐢𝐧𝐠 𝐢𝐧𝐭𝐞𝐫𝐞𝐬𝐭 𝐢𝐧 𝐃𝐨𝐧𝐚𝐭𝐢𝐨𝐧</blockquote>
-
-<b><i>💞  ɪꜰ ʏᴏᴜ ʟɪᴋᴇ ᴏᴜʀ ʙᴏᴛ ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴅᴏɴᴀᴛᴇ ᴀɴʏ ᴀᴍᴏᴜɴᴛ ₹𝟷𝟶, ₹𝟸𝟶, ₹𝟻𝟶, ₹𝟷𝟶𝟶, ᴇᴛᴄ.</i></b>
-
-❣️ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛𝑠 𝑎𝑟𝑒 𝑟𝑒𝑎𝑙𝑙𝑦 𝑎𝑝𝑝𝑟𝑒𝑐𝑖𝑎𝑡𝑒𝑑 𝑖𝑡 ℎ𝑒𝑙𝑝𝑠 𝑖𝑛 𝑏𝑜𝑡 𝑑𝑒𝑣𝑒𝑙𝑜𝑝𝑚𝑒𝑛𝑡
-
-💖 𝐔𝐏𝐈 𝐈𝐃 : <code>TechifyRahul@UPI</code>
-
-💗 𝐐𝐑 𝐂𝐨𝐝𝐞 : <b><a href='https://TechifyBots.github.io/PayWeb'>𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾</a></b>
-"""
-
 @Client.on_message(filters.private & filters.command("start"))
 async def startCMD(client: Client, message: Message):
     if not await db.is_user_exist(message.from_user.id):
@@ -64,10 +52,10 @@ async def startCMD(client: Client, message: Message):
     )
 
 @Client.on_message(filters.private & filters.command("help"))
-async def donateCMD(client: Client, message: Message):
+async def helpCMD(client: Client, message: Message):
     keyboard = [[InlineKeyboardButton('✗ ᴄʟᴏsᴇ ✗', callback_data='close_data')]]
     await message.reply_text(
-        text=DONATE_TXT,
+        text=HELP_TXT,
         reply_markup=InlineKeyboardMarkup(keyboard),
         disable_web_page_preview=True
     )
