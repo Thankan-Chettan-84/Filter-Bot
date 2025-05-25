@@ -11,7 +11,7 @@
 <details><summary>Tap On Me For Bot Features</summary>
 
 - Auto Delete
-- Unzip your zip files
+- Unlimited filters
 - Fully modified repo
 - Deploy To Koyeb + Heroku + Railway.
 - Developer Service 24x7.
@@ -32,9 +32,18 @@
 <details><summary>Tap On Me For Commands</summary>
 
 ```
-start - Check Bot Online 🔔
-help - How To Use The Bot 🆘
-about - Something About Me 😌
+start - Check Bot Online
+help - How To Use bot
+add - To add a filter
+del - To delete a filter
+filters - To check all filters
+connect - To connect your group
+disconnect - To disconnect your group
+connections - Manage linked groups
+id - to get user/group ID
+info - to get user info
+stats - To check bot status
+broadcast - To broadcast your message
 ```
 </details>
 
