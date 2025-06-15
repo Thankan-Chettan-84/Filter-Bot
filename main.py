@@ -3,7 +3,7 @@ from datetime import datetime
 from pytz import timezone
 from pyrogram import Client
 from aiohttp import web
-from config import API_ID, API_HASH, BOT_TOKEN, ADMIN, LOG_CHANNEL
+from config import API_ID, API_HASH, BOT_TOKEN, LOG_CHANNEL
 
 routes = web.RouteTableDef()
 
@@ -41,11 +41,6 @@ class Bot(Client):
         await super().start()
         me = await self.get_me()
         print(f"Bot Started as {me.first_name}")
-        if isinstance(ADMIN, int):
-            try:
-                await self.send_message(ADMIN, f"**{me.first_name} is started...**")
-            except Exception as e:
-                print(f"Error sending message to admin: {e}")
         if LOG_CHANNEL:
             try:
                 now = datetime.now(timezone("Asia/Kolkata"))
