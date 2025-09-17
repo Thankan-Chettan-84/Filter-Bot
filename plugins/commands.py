@@ -4,13 +4,11 @@ from .database import db
 from config import *
 
 START_TXT = """
-{mention},
+<b>Hᴇʟʟᴏ {mention},
 
-𝖨'𝗆 𝖺 𝗉𝗈𝗐𝖾𝗋𝖿𝗎𝗅 𝖿𝗂𝗅𝗍𝖾𝗋 𝖻𝗈𝗍 𝗐𝗂𝗍𝗁 𝗅𝗂𝗆𝗂𝗍𝗅𝖾𝗌𝗌 𝖼𝖺𝗉𝖺𝖻𝗂𝗅𝗂𝗍𝗂𝖾𝗌!
+<blockquote>🤖 I'ᴀᴍ A Gʀᴏᴜᴩ Mᴀɴᴀɢᴇʀ Bᴏᴛ 💥</blockquote>
 
-𝖲𝖾𝗍 𝖿𝗂𝗅𝗍𝖾𝗋𝗌 𝖾𝖿𝖿𝗈𝗋𝗍𝗅𝖾𝗌𝗌𝗅𝗒 𝖺𝗇𝖽 𝗆𝖺𝗇𝖺𝗀𝖾 𝗋𝖾𝗌𝗉𝗈𝗇𝗌𝖾𝗌 𝗅𝗂𝗄𝖾 𝖺 𝗉𝗋𝗈.
-
-<b><blockquote>ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://telegram.me/CallOwnerBot'>ʀᴀʜᴜʟ</a></blockquote></b>
+⚠️ 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 & 𝗖𝗵𝗮𝗻𝗻𝗲𝗹𝘀 𝘁𝗼 𝗞𝗻𝗼𝘄 𝗠𝗼𝗿𝗲 👇</b>
 """
 
 HELP_TXT = """
@@ -31,27 +29,29 @@ HELP_TXT = """
 • <code>/𝗂𝗇𝖿𝗈 𝗎𝗌𝖾𝗋𝗂𝖽</code> - 𝖦𝖾𝗍 𝗎𝗌𝖾𝗋 𝖽𝖾𝗍𝖺𝗂𝗅𝗌.
 
 <b>𝖤𝗑𝖺𝗆𝗉𝗅𝖾𝗌:</b>
-🔘 𝖡𝗎𝗍𝗍𝗈𝗇: <code>[𝖤𝗑𝖺𝗆𝗉𝗅𝖾] (buttonurl:https://telegram.me/TechifyBots)</code>
-🔗 𝖫𝗂𝗇𝗄: <code>[𝖤𝗑𝖺𝗆𝗉𝗅𝖾] (https://telegram.me/TechifyBots)</code>
-
-<b>𝖨𝖿 𝗒𝗈𝗎 𝗌𝗍𝗂𝗅𝗅 𝖿𝖺𝖼𝖾 𝖺𝗇𝗒 𝗂𝗌𝗌𝗎𝖾 𝗍𝗁𝖾𝗇 𝖼𝗈𝗇𝗍𝖺𝖼𝗍 @TechifySupport</b>
+🔘 𝖡𝗎𝗍𝗍𝗈𝗇: <code>[𝖤𝗑𝖺𝗆𝗉𝗅𝖾] (buttonurl:https://telegram.me/MovieJunctionGrp)</code>
+🔗 𝖫𝗂𝗇𝗄: <code>[𝖤𝗑𝖺𝗆𝗉𝗅𝖾] (https://telegram.me/MovieJunctionGrp)</code>
 """
 
 @Client.on_message(filters.private & filters.command("start"))
 async def startCMD(client: Client, message: Message):
-    if not await db.is_user_exist(message.from_user.id):
+    """if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.first_name, message.from_user.id)
         await client.send_message(
             chat_id=LOG_CHANNEL, 
             text=f"**#New\n\n👤 {message.from_user.mention}**\n\nID - `{message.from_user.id}`"
         )
-    keyboard = [[InlineKeyboardButton('ʜᴇʟᴘ ᴄᴇɴᴛᴇʀ', callback_data='start')]]
+    """
+    keyboard = [[
+                InlineKeyboardButton('♻️ GROUP', url='https://t.me/MovieJunctionGrp'),
+                InlineKeyboardButton('CHANNELS 🏷️', url='https://t.me/Mj_Linkz/1318')
+         ]]
     await message.reply_text(
         text=START_TXT.format(mention=message.from_user.mention),
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-@Client.on_message(filters.private & filters.command("help"))
+@Client.on_message(filters.private & filters.command("nohelp"))
 async def helpCMD(client: Client, message: Message):
     keyboard = [[InlineKeyboardButton('✗ ᴄʟᴏsᴇ ✗', callback_data='close_data')]]
     await message.reply_text(
