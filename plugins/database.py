@@ -7,7 +7,7 @@ class Database:
     def __init__(self):
         self.client0 = MongoClient(DATABASE_URI)
         self.client0 = self.client0[DATABASE_NAME]
-        self.client1 = self.client0["FILTERS"]
+        self.client1 = self.client0 ##self.client0["FILTERS"]
         self.client2 = self.client0["CONNECTION"]
         self.client3 = self.client0["USERS"]
 
