@@ -18,7 +18,7 @@ async def addfilter(client, message):
 
     if chat_type == enums.ChatType.PRIVATE:
         grpid = await db.active_connection(str(userid))
-        if grpid is not None && grpid==Filter_Group:
+        if (grpid is not None) & (grpid==Filter_Group):
             grp_id = grpid
             try:
                 chat = await client.get_chat(grpid)
@@ -30,7 +30,7 @@ async def addfilter(client, message):
             await message.reply_text("I'm not connected to any groups!", quote=True)
             return
 
-    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP] && message.chat.id==Filter_Group:
+    elif (chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]) & (message.chat.id==Filter_Group):
         grp_id = message.chat.id
         title = message.chat.title
 
